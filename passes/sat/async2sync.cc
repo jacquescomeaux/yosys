@@ -166,23 +166,23 @@ struct Async2syncPass : public Pass {
 								log_id(module), log_id(cell), log_id(cell->type),
 								log_signal(ff.sig_arst), log_signal(ff.sig_d), log_signal(ff.sig_q));
 
-						initvals.remove_init(ff.sig_q);
+						/* initvals.remove_init(ff.sig_q); */
 
-						Wire *new_q = module->addWire(NEW_ID, ff.width);
+						/* Wire *new_q = module->addWire(NEW_ID, ff.width); */
 
-						if (ff.pol_arst) {
-							if (!ff.is_fine)
-								module->addMux(NEW_ID, new_q, ff.val_arst, ff.sig_arst, ff.sig_q);
-							else
-								module->addMuxGate(NEW_ID, new_q, ff.val_arst[0], ff.sig_arst, ff.sig_q);
-						} else {
-							if (!ff.is_fine)
-								module->addMux(NEW_ID, ff.val_arst, new_q, ff.sig_arst, ff.sig_q);
-							else
-								module->addMuxGate(NEW_ID, ff.val_arst[0], new_q, ff.sig_arst, ff.sig_q);
-						}
+						/* if (ff.pol_arst) { */
+						/* 	if (!ff.is_fine) */
+						/* 		module->addMux(NEW_ID, new_q, ff.val_arst, ff.sig_arst, ff.sig_q); */
+						/* 	else */
+						/* 		module->addMuxGate(NEW_ID, new_q, ff.val_arst[0], ff.sig_arst, ff.sig_q); */
+						/* } else { */
+						/* 	if (!ff.is_fine) */
+						/* 		module->addMux(NEW_ID, ff.val_arst, new_q, ff.sig_arst, ff.sig_q); */
+						/* 	else */
+						/* 		module->addMuxGate(NEW_ID, ff.val_arst[0], new_q, ff.sig_arst, ff.sig_q); */
+						/* } */
 
-						ff.sig_q = new_q;
+						/* ff.sig_q = new_q; */
 						ff.has_arst = false;
 						ff.has_srst = true;
 						ff.ce_over_srst = false;
